@@ -2,11 +2,13 @@ import { View, Text, StyleSheet } from 'react-native';
 import { Colors, theme, CategoryColors } from '@/constants/Colors';
 import { useAppStore } from '@/store/useAppStore';
 import { categories } from '@/lib/data';
+import { useTranslation } from '@/lib/useTranslation';
 
 export function ProgressOverview() {
   const categoryProgress = useAppStore((s) => s.categoryProgress);
   const userMnemonics = useAppStore((s) => s.userMnemonics);
   const currentStreak = useAppStore((s) => s.currentStreak);
+  const { t } = useTranslation();
 
   // Calculate overall stats with null safety for migrated data
   const totalMnemonics = Object.keys(userMnemonics).length;
@@ -26,7 +28,7 @@ export function ProgressOverview() {
   return (
     <View style={styles.container}>
       {/* Fun title */}
-      <Text style={styles.title}>📊 Your Progress</Text>
+      <Text style={styles.title}>📊 {t('yourProgress')}</Text>
 
       {/* Category progress bars - visual and colorful */}
       <View style={styles.categoryBars}>
@@ -58,32 +60,32 @@ export function ProgressOverview() {
         <View style={[styles.statCard, styles.statCardPrimary]}>
           <Text style={styles.statEmoji}>🧠</Text>
           <Text style={styles.statValue}>{totalMnemonics}</Text>
-          <Text style={styles.statLabel}>Stories Made</Text>
+          <Text style={styles.statLabel}>{t('storiesMade')}</Text>
         </View>
 
         <View style={[styles.statCard, styles.statCardSecondary]}>
           <Text style={styles.statEmoji}>👀</Text>
           <Text style={styles.statValue}>{primedCategories}/10</Text>
-          <Text style={styles.statLabel}>Explored</Text>
+          <Text style={styles.statLabel}>{t('explored')}</Text>
         </View>
 
         <View style={[styles.statCard, styles.statCardTertiary]}>
           <Text style={styles.statEmoji}>🎯</Text>
           <Text style={styles.statValue}>{Math.round(avgAccuracy)}%</Text>
-          <Text style={styles.statLabel}>Score</Text>
+          <Text style={styles.statLabel}>{t('score')}</Text>
         </View>
 
         <View style={[styles.statCard, styles.statCardQuaternary]}>
           <Text style={styles.statEmoji}>🔥</Text>
           <Text style={styles.statValue}>{currentStreak}</Text>
-          <Text style={styles.statLabel}>Streak</Text>
+          <Text style={styles.statLabel}>{t('streak')}</Text>
         </View>
       </View>
 
       {/* Mastery meter - like a game XP bar */}
       <View style={styles.masterySection}>
         <View style={styles.masteryHeader}>
-          <Text style={styles.masteryTitle}>⭐ Mastery Level</Text>
+          <Text style={styles.masteryTitle}>⭐ {t('masteryLevel')}</Text>
           <Text style={styles.masteryCount}>{masteredItems}/100</Text>
         </View>
         <View style={styles.masteryTrack}>
@@ -96,14 +98,14 @@ export function ProgressOverview() {
         </View>
         <Text style={styles.masteryHint}>
           {masteredItems < 25
-            ? 'Keep exploring! 🌱'
+            ? `${t('keepExploring')} 🌱`
             : masteredItems < 50
-            ? 'Great start! 🌟'
+            ? `${t('greatStart')} 🌟`
             : masteredItems < 75
-            ? 'Amazing progress! 🚀'
+            ? `${t('amazingProgress')} 🚀`
             : masteredItems < 100
-            ? 'Almost there! 🏆'
-            : 'You are a champion! 👑'}
+            ? `${t('almostThere')} 🏆`
+            : `${t('youAreChampion')} 👑`}
         </Text>
       </View>
     </View>

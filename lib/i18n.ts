@@ -170,6 +170,15 @@ export const translations = {
     category: 'category',
     newRound: 'New Round',
 
+    // Progress Overview
+    storiesMade: 'Stories Made',
+    masteryLevel: 'Mastery Level',
+    keepExploring: 'Keep exploring!',
+    greatStart: 'Great start!',
+    amazingProgress: 'Amazing progress!',
+    almostThere: 'Almost there!',
+    youAreChampion: 'You are a champion!',
+
     // Speed screens
     sprintTitle: '60-Second Sprint',
     sprintSubtitle: 'How many can you get in one minute?',
@@ -354,6 +363,15 @@ export const translations = {
     whichNotIn: 'Lequel N\'EST PAS dans la catégorie',
     category: 'catégorie',
     newRound: 'Nouvelle Manche',
+
+    // Progress Overview
+    storiesMade: 'Histoires créées',
+    masteryLevel: 'Niveau de maîtrise',
+    keepExploring: 'Continue à explorer !',
+    greatStart: 'Bon début !',
+    amazingProgress: 'Super progression !',
+    almostThere: 'Presque là !',
+    youAreChampion: 'Tu es un champion !',
 
     // Speed screens
     sprintTitle: 'Sprint de 60 Secondes',
